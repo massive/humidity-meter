@@ -1,0 +1,17 @@
+{
+  "name": "humidor",
+  "version": "1.0.0",
+  "description": "Push data points of a humidor to web",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.0.6",
+    "firebase": "^2.3.2",
+    "sensortag": "^1.2.0",
+    "winston": "^2.1.1"
+  }
+}
