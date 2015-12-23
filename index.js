@@ -61,7 +61,7 @@ function onDiscover(discovered) {
 }
 
 function startDiscover() {
-  console.log("Starting discovery listener...");
+  console.log('Starting discovery listener...');
   SensorTag.discover(onDiscover);
   setTimeout(connectToDiscovered, 5000);
 }
@@ -120,10 +120,12 @@ class Tag {
       if (error) {
         logger.error(`Humidity error: ${error}`);
       } else {
-        this.tag.readHumidity((error, temp, hum) => {
-          this.humidityCallback(error, temp, hum);
-          this.tag.disableHumidity();
-        });
+        setTimeout(() => {
+          this.tag.readHumidity((error, temp, hum) => {
+            this.humidityCallback(error, temp, hum);
+            this.tag.disableHumidity();
+          });
+        }, 1000);
       }
     });
   }
