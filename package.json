@@ -10,7 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.0.6",
+    "dotenv": "^1.2.0",
     "firebase": "^2.3.2",
+    "limiter": "^1.1.0",
+    "pushbullet": "^1.4.3",
     "sensortag": "^1.2.0",
     "winston": "^2.1.1"
   }
