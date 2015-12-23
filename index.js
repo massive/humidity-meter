@@ -24,6 +24,9 @@ const logger = new (winston.Logger)({
    ]
 });
 
+const INTERVAL = parseInt(process.env.INTERVAL_IN_SECONDS, 10) * 1000;
+logger.info(`Poll interval set to ${INTERVAL}`)
+
 // Firebase
 const ref = new Firebase('https://humidor.firebaseio.com/');
 const recordsRef = ref.child('records');
@@ -80,7 +83,7 @@ class Tag {
       }
 
       logger.info('Connected...');
-      this.humidityInterval = setInterval(this.readHumidity.bind(this), 10000);
+      this.humidityInterval = setInterval(this.readHumidity.bind(this), INTERVAL);
 
       logger.info(`Disconnect event count (tag): ${this.tag.listeners('disconnect').length}`);
       logger.info(`Disconnect event count (tag._peripheral): ${this.tag._peripheral.listeners('disconnect').length}`);
