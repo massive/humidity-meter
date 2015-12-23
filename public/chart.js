@@ -1,4 +1,4 @@
-function plot(container, data) {
+function plot(container, temperature, humidity) {
   $(container).highcharts({
     chart: {
       type: 'spline'
@@ -19,13 +19,13 @@ function plot(container, data) {
 
     yAxis: {
       title: {
-        text: 'Snow depth (m)'
+        text: 'Values'
       },
       min: 0
     },
     tooltip: {
       headerFormat: '<b>{series.name}</b><br>',
-      pointFormat: '{point.x:%e. %b}: {point.y:.2f} %'
+      pointFormat: '{point.x:%e. %b}: {point.y:.2f} {point.unit}'
     },
 
     plotOptions: {
@@ -39,10 +39,10 @@ function plot(container, data) {
 
     series: [{
       name: 'Humidity',
-      // Define the data points. All series have a dummy year
-      // of 1970/71 in order to be compared on the same x axis. Note
-      // that in JavaScript, months start at 0 for January, 1 for February etc.
-      data: data
+      data: humidity
+    }, {
+      name: 'Temperature',
+      data: temperature
     }]
   });
 }

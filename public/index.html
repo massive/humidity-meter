@@ -12,11 +12,15 @@
     ref.orderByKey().on("value", function(data) {
         const model = data.val();
         const keys = Object.keys(model);
-        const chartData = keys.map(key => {
+        const humidity = keys.map(key => {
           const item = model[key];
-          return [item.timestamp, item.humidity];
+          return {x: item.timestamp, y: item.humidity, unit: '%'};
         })
-        plot('#container', chartData);
+        const temperature = keys.map(key => {
+          const item = model[key];
+          return {x: item.timestamp, y: item.temp, unit: '°C'};
+        })
+        plot('#container', temperature, humidity);
     });
   });
   </script>
