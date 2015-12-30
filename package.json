@@ -16,5 +16,9 @@
     "pushbullet": "^1.4.3",
     "sensortag": "^1.2.0",
     "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "fly": "^0.8.4",
+    "fly-babel": "^0.7.0"
   }
 }

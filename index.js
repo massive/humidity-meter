@@ -139,10 +139,10 @@ class Tag {
       const newRecord = recordsRef.child(key);
       newRecord.set({temp: temp, humidity: humidity, timestamp: key});
       if (humidity < MIN_HUMIDITY || humidity > MAX_HUMIDITY) {
+        logger.warn(`Humidity threshold exceeded: ${humidity}`);
         const body = `Current humidity: ${humidity}`;
         limiter.removeTokens(1, (_err, remainingRequests) => {
           pusher.note(device, 'Humidity threshold exceeded', body, (error, response) => {
-            logger.warn(`Humidity threshold exceeded: ${humidity}`);
             logger.debug(response);
             if (error) {
               logger.error(error);
