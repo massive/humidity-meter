@@ -18,6 +18,6 @@ export function* build () {
   yield this
     .source(paths.scripts)
     .babel({ presets: ["es2015"], sourceMap: true })
-    .concat("chart.js")
-    .target("public/js")
+    .concat('chart.js')
+    .target('public/js')
 }

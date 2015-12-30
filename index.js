@@ -35,7 +35,7 @@ const recordsRef = ref.child('records');
 const pusher = Promise.promisifyAll(new PushBullet(process.env.PUSHBULLET_API_KEY));
 
 // Limiter
-var limiter = new RateLimiter(1, 'hour');
+var limiter = new RateLimiter(1, 'day');
 
 pusher.devicesAsync()
   .then((response) => {
