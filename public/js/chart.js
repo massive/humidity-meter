@@ -1,6 +1,4 @@
-'use strict';
-
-function run() {
+function run () {
   var ref = new Firebase('https://humidor.firebaseio.com/records');
   ref.limitToLast(1000).orderByChild('timestamp').on('value', function (data) {
     var model = data.val();
@@ -56,4 +54,3 @@ function plot(container, data, title, color) {
     }]
   });
 }
-//# sourceMappingURL=chart.js.map
