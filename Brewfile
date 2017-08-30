@@ -1,0 +1,2 @@
+brew "influxdb"
+brew "grafana"
