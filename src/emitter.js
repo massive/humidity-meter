@@ -1,7 +1,10 @@
+import dotenv from 'dotenv';
 import ruuvi from 'node-ruuvitag';
-import influx from './db';
+import DB from './db';
 
-console.log("Starting");
+dotenv.config({ path: './influxdb.env' });
+
+const influx = DB.instance();
 
 ruuvi.on('found', tag => {
   console.log('Found RuuviTag, id: ' + tag.id);
