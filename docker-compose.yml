@@ -1,0 +1,28 @@
+version: '2'
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    size: s1
+    fip: 209.177.88.132
+    volumes:
+      - gfd:/etc/grafana
+      - gfd:/var/log/grafana
+      - gfd:/var/lib/grafana
+    links:
+      - influxdb
+    ports:
+      - "3000:3000"
+    noauto_volume: true
+  influxdb:
+    container_name: influxdb
+    image: influxdb
+    fip: 199.245.58.214
+    size: s2
+    noauto_volume: true
+    volumes:
+      - idbd:/var/lib/influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_HTTP_AUTH_ENABLED=true

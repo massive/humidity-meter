@@ -1,8 +1,10 @@
 const Influx = require('influx');
 
 const influx = new Influx.InfluxDB({
-  host: '209.177.88.132',
+  host: '199.245.58.214',
   database: 'humidor_db',
+  username: 'admin',
+  password: 'DJNK8r44Ln9a)9dgtU#]=g=vQ',
   schema: [
     {
       measurement: 'RuuviTag',
