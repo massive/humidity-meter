@@ -3,7 +3,7 @@ services:
   grafana:
     container_name: grafana
     image: grafana/grafana
-    size: s1
+    size: s2
     fip: 209.177.88.132
     volumes:
       - gfd:/etc/grafana
