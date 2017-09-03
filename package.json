@@ -15,7 +15,7 @@
     "node-ruuvitag": "^3.2.0"
   },
   "scripts": {
-    "start": "babel-node src/emitter.js"
+    "start": "babel-node app.js"
   },
   "devDependencies": {}
 }
