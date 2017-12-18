@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   grafana:
     container_name: grafana
@@ -9,17 +9,40 @@ services:
       - gfd:/var/lib/grafana
     links:
       - influxdb
-    ports:
-      - "3000:3000"
     env_file: .env
+    environment:
+      VIRTUAL_HOST: grafana.{$HOST}
+      LETSENCRYPT_HOST: grafana.{$HOST}
+      LETSENCRYPT_EMAIL: "{$LETSENCRYPT_EMAIL}"
   influxdb:
     container_name: influxdb
     image: influxdb
     volumes:
       - id:/var/lib/influxdb
-    ports:
-      - "8086:8086"
     env_file: .env
+    environment:
+      VIRTUAL_HOST: influxdb.{$HOST}
+      LETSENCRYPT_HOST: influxdb.{$HOST}
+      LETSENCRYPT_EMAIL: "{$LETSENCRYPT_EMAIL}"
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - '/etc/nginx/vhost.d'
+      - '/usr/share/nginx/html'
+      - '/etc/nginx/certs:/etc/nginx/certs:ro'
+      - '/var/run/docker.sock:/tmp/docker.sock:ro'
+  letsencrypt-nginx-proxy:
+    container_name: letsencrypt-nginx-proxy
+    image: 'jrcs/letsencrypt-nginx-proxy-companion'
+    volumes:
+      - '/etc/nginx/certs:/etc/nginx/certs'
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    volumes_from:
+      - nginx-proxy
 volumes:
   gfd:
   id:

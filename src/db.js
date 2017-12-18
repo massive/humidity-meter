@@ -6,6 +6,8 @@ function instance() {
     database: 'humidor_db',
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
+    port: 443,
+    protocol: 'https',
     schema: [
       {
         measurement: 'RuuviTag',

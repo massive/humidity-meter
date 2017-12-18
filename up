@@ -1,0 +1,4 @@
+#!/bin/bash
+eval $(docker-machine env humidor-vc1s-node)
+docker-machine status
+docker-compose up -d

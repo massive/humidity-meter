@@ -4,11 +4,13 @@ import DB from './db';
 
 dotenv.config();
 
-console.log("Loading database");
+console.log("Connecting to database...");
 
 const influx = DB.instance();
 
-console.log("Starting...");
+console.log("Connected");
+
+console.log("Trying to connect to RuuviTag...");
 
 ruuvi.on('found', tag => {
   console.log('Found RuuviTag, id: ' + tag.id);
