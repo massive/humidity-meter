@@ -11,8 +11,8 @@ services:
       - influxdb
     env_file: .env
     environment:
-      VIRTUAL_HOST: grafana.{$HOST}
-      LETSENCRYPT_HOST: grafana.{$HOST}
+      VIRTUAL_HOST: grafana.elontie.club
+      LETSENCRYPT_HOST: grafana.elontie.club
       LETSENCRYPT_EMAIL: "{$LETSENCRYPT_EMAIL}"
   influxdb:
     container_name: influxdb
@@ -21,8 +21,8 @@ services:
       - id:/var/lib/influxdb
     env_file: .env
     environment:
-      VIRTUAL_HOST: influxdb.{$HOST}
-      LETSENCRYPT_HOST: influxdb.{$HOST}
+      VIRTUAL_HOST: influxdb.elontie.club
+      LETSENCRYPT_HOST: influxdb.elontie.club
       LETSENCRYPT_EMAIL: "{$LETSENCRYPT_EMAIL}"
   nginx-proxy:
     image: jwilder/nginx-proxy
