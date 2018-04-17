@@ -877,9 +877,9 @@ nan@^2.0.5, nan@^2.3.0, nan@^2.4.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
 
-noble@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/noble/-/noble-1.8.1.tgz#efe880812b7251afaaadb4fe83753c1302a673f6"
+noble@^1.9.0:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/noble/-/noble-1.9.1.tgz#2ccd31ead8ec92dbff6f19a42e420b258bcdcdd0"
   dependencies:
     debug "~2.2.0"
   optionalDependencies:
@@ -901,11 +901,11 @@ node-pre-gyp@^0.6.30, node-pre-gyp@^0.6.36:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-node-ruuvitag@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/node-ruuvitag/-/node-ruuvitag-3.2.0.tgz#d189b392f4f3efb0725e3792689687af7b809f4a"
+node-ruuvitag@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/node-ruuvitag/-/node-ruuvitag-4.1.0.tgz#d9075114ea712701e3d33aec089fe2d34c1d806d"
   dependencies:
-    noble "^1.8.1"
+    noble "^1.9.0"
 
 nopt@^4.0.1:
   version "4.0.1"

@@ -12,7 +12,7 @@
     "babel-preset-node6": "^11.0.0",
     "dotenv": "^4.0.0",
     "influx": "^5.0.7",
-    "node-ruuvitag": "^3.2.0"
+    "node-ruuvitag": "^4.1.0"
   },
   "scripts": {
     "start": "babel-node app.js"
