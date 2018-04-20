@@ -1,1 +1,4 @@
-import foo from './src/emitter.js'
+import dotenv from 'dotenv';
+import RuuviTag from './src/ruuvitag'
+dotenv.config();
+RuuviTag.start();

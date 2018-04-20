@@ -1,6 +1,9 @@
 const Influx = require('influx');
+import logger from './logger';
 
-function instance() {
+function connect() {
+  logger.info("Connecting to database...");
+
   const influx = new Influx.InfluxDB({
     host: process.env.DB_HOST,
     database: 'humidor_db',
@@ -29,19 +32,21 @@ function instance() {
     ]
   });
 
+  logger.info("Connected to database");
+
   influx.getDatabaseNames()
-  .then(names => {
-    if (!names.includes('humidor_db')) {
-      return influx.createDatabase('humidor_db');
-    }
-  })
-  .catch(err => {
-    console.error(`Error creating Influx database! ${err}`);
-  });
+    .then(names => {
+      if (!names.includes('humidor_db')) {
+        return influx.createDatabase('humidor_db');
+      }
+    })
+    .catch(err => {
+      logger.error(`Error creating Influx database! ${err}`);
+    });
 
   return influx;
 };
 
 export default {
-  instance
+  connect
 };

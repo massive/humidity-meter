@@ -10,9 +10,10 @@
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-node6": "^11.0.0",
-    "dotenv": "^4.0.0",
+    "dotenv": "^5.0.1",
     "influx": "^5.0.7",
-    "node-ruuvitag": "^4.1.0"
+    "node-ruuvitag": "^4.1.0",
+    "winston": "^3.0.0-rc4"
   },
   "scripts": {
     "start": "babel-node app.js"
